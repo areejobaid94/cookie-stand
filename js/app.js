@@ -10,6 +10,8 @@ let storesArrey = [{
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     }, totalCookies: function () {
         let div = document.createElement('div');
+        let card = document.createElement('div');
+        card.className = 'card';
         div.className = "container";
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -22,11 +24,12 @@ let storesArrey = [{
             renderTheList(ul,value,timeArray[i])
         }
         div.appendChild(ul)
+        card.appendChild(div);
         let totalLi = document.createElement('li');
         totalLi.innerHTML = `Total: ${total}`
         let main =  document.getElementById('main')
         main.appendChild(h1);
-        main.appendChild(div)
+        main.appendChild(card);
     }
 }, {
     location:'Tokyo',min: 3, max: 24, average: 1.2,totalCooliesPerHour:[],
@@ -36,6 +39,8 @@ let storesArrey = [{
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     }, totalCookies: function () {
         let div = document.createElement('div');
+        let card = document.createElement('div');
+        card.className = 'card';
         div.className = "container";
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -48,11 +53,12 @@ let storesArrey = [{
             renderTheList(ul,value,timeArray[i])
         }
         div.appendChild(ul)
+        card.appendChild(div);
         let totalLi = document.createElement('li');
         totalLi.innerHTML = `Total: ${total}`
         let main =  document.getElementById('main')
         main.appendChild(h1);
-        main.appendChild(div)
+        main.appendChild(card);
     }
 },{
     location:'Dubai',min: 11, max: 38, average: 3.7,totalCooliesPerHour:[],
@@ -60,8 +66,10 @@ let storesArrey = [{
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    },totalCookies: function () {
+    }, totalCookies: function () {
         let div = document.createElement('div');
+        let card = document.createElement('div');
+        card.className = 'card';
         div.className = "container";
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -74,11 +82,12 @@ let storesArrey = [{
             renderTheList(ul,value,timeArray[i])
         }
         div.appendChild(ul)
+        card.appendChild(div);
         let totalLi = document.createElement('li');
         totalLi.innerHTML = `Total: ${total}`
         let main =  document.getElementById('main')
         main.appendChild(h1);
-        main.appendChild(div)
+        main.appendChild(card);
     }
 },{
     location:'Paris',min: 20, max: 38, average: 2.3,totalCooliesPerHour:[],
@@ -86,8 +95,10 @@ let storesArrey = [{
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    },totalCookies: function () {
+    }, totalCookies: function () {
         let div = document.createElement('div');
+        let card = document.createElement('div');
+        card.className = 'card';
         div.className = "container";
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -100,11 +111,12 @@ let storesArrey = [{
             renderTheList(ul,value,timeArray[i])
         }
         div.appendChild(ul)
+        card.appendChild(div);
         let totalLi = document.createElement('li');
         totalLi.innerHTML = `Total: ${total}`
         let main =  document.getElementById('main')
         main.appendChild(h1);
-        main.appendChild(div)
+        main.appendChild(card);
     }
 },{
     location:'Lima',min: 2, max: 16, average: 4.6,totalCooliesPerHour:[],
@@ -114,6 +126,8 @@ let storesArrey = [{
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     }, totalCookies: function () {
         let div = document.createElement('div');
+        let card = document.createElement('div');
+        card.className = 'card';
         div.className = "container";
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -126,11 +140,12 @@ let storesArrey = [{
             renderTheList(ul,value,timeArray[i])
         }
         div.appendChild(ul)
+        card.appendChild(div);
         let totalLi = document.createElement('li');
         totalLi.innerHTML = `Total: ${total}`
         let main =  document.getElementById('main')
         main.appendChild(h1);
-        main.appendChild(div)
+        main.appendChild(card);
     }
 }] 
 
