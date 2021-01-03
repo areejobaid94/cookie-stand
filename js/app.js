@@ -1,12 +1,13 @@
-'use-static'
+"use strict";
+
 console.log('start')
 let timeArray = ['6am', '7am', '8am', '9am', '10am', '11am','1pm','2pm','3pm','4pm','5pm','6pm','7pm']
 let storesArrey = [{
     location:'Seattle',min: 23, max: 65, average: 6.3,totalCooliesPerHour:[],
     getRandomIntInclusive: function () {
-        min = Math.ceil(this.min);
-        max = Math.floor(this.max);
-        return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); //The maximum is inclusive and the minimum is inclusive
+        let min = Math.ceil(this.min);
+        let max = Math.floor(this.max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     }, totalCookies: function () {
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -27,9 +28,9 @@ let storesArrey = [{
 }, {
     location:'Tokyo',min: 3, max: 24, average: 1.2,totalCooliesPerHour:[],
     getRandomIntInclusive: function () {
-        min = Math.ceil(this.min);
-        max = Math.floor(this.max);
-        return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); //The maximum is inclusive and the minimum is inclusive
+        let min = Math.ceil(this.min);
+        let max = Math.floor(this.max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     }, totalCookies: function () {
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -50,9 +51,9 @@ let storesArrey = [{
 },{
     location:'Dubai',min: 11, max: 38, average: 3.7,totalCooliesPerHour:[],
     getRandomIntInclusive: function () {
-        min = Math.ceil(this.min);
-        max = Math.floor(this.max);
-        return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); //The maximum is inclusive and the minimum is inclusive
+        let min = Math.ceil(this.min);
+        let max = Math.floor(this.max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     },totalCookies: function () {
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -73,9 +74,9 @@ let storesArrey = [{
 },{
     location:'Paris',min: 20, max: 38, average: 2.3,totalCooliesPerHour:[],
     getRandomIntInclusive: function () {
-        min = Math.ceil(this.min);
-        max = Math.floor(this.max);
-        return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); //The maximum is inclusive and the minimum is inclusive
+        let min = Math.ceil(this.min);
+        let max = Math.floor(this.max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     }, totalCookies: function () {
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
@@ -96,9 +97,9 @@ let storesArrey = [{
 },{
     location:'Lima',min: 2, max: 16, average: 4.6,totalCooliesPerHour:[],
     getRandomIntInclusive: function () {
-        min = Math.ceil(this.min);
-        max = Math.floor(this.max);
-        return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); //The maximum is inclusive and the minimum is inclusive
+        let min = Math.ceil(this.min);
+        let max = Math.floor(this.max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     }, totalCookies: function () {
         let ul = document.createElement('ul');
         let h1 = document.createElement('h1');
