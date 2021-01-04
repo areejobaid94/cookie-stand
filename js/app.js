@@ -2,42 +2,7 @@
 
 console.log('start')
 let timeArray = ['6am', '7am', '8am', '9am', '10am', '11am','1pm','2pm','3pm','4pm','5pm','6pm','7pm']
-let storesArrey = [{
-    location:'Seattle',min: 23, max: 65, average: 6.3,totalCooliesPerHour:[],
-    getRandomIntInclusive: function () {
-        let min = Math.ceil(this.min);
-        let max = Math.floor(this.max);
-        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }
-}, {
-    location:'Tokyo',min: 3, max: 24, average: 1.2,totalCooliesPerHour:[],
-    getRandomIntInclusive: function () {
-        let min = Math.ceil(this.min);
-        let max = Math.floor(this.max);
-        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }
-},{
-    location:'Dubai',min: 11, max: 38, average: 3.7,totalCooliesPerHour:[],
-    getRandomIntInclusive: function () {
-        let min = Math.ceil(this.min);
-        let max = Math.floor(this.max);
-        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }
-},{
-    location:'Paris',min: 20, max: 38, average: 2.3,totalCooliesPerHour:[],
-    getRandomIntInclusive: function () {
-        let min = Math.ceil(this.min);
-        let max = Math.floor(this.max);
-        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }
-},{
-    location:'Lima',min: 2, max: 16, average: 4.6,totalCooliesPerHour:[],
-    getRandomIntInclusive: function () {
-        let min = Math.ceil(this.min);
-        let max = Math.floor(this.max);
-        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }
-}] 
+let storesArrey = [] 
 
 let totalCookies = function (obj) {
     let div = document.createElement('div');
@@ -69,6 +34,19 @@ function renderTheList(ul,value,time){
     ul.appendChild(li);
 }
 
+function StoreObj(location,min,max,average) {
+    this.location = location;
+    this.min = min;
+    this.max = max;
+    this.average = average;
+    this.totalCooliesPerHour = [];
+    this.getRandomIntInclusive = function(){
+        let min = Math.ceil(this.min);
+        let max = Math.floor(this.max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+    }
+}
+
 function startPage (){
     let table =  document.getElementById('table');
     let htmlTable = document.createElement('table')
@@ -84,6 +62,12 @@ function startPage (){
     let thAvg = document.createElement('th');
     thAvg.innerText = 'Avg Cookie / Sale';
     htmlTable.appendChild(thAvg);
+
+    storesArrey.push(new StoreObj('Seattle', 23,65, 6.3));
+    storesArrey.push(new StoreObj('Tokyo',3,24, 1.2));
+    storesArrey.push(new StoreObj('Dubai',11, 38,3.7));
+    storesArrey.push(new StoreObj('Paris',20, 38, 2.3));
+    storesArrey.push(new StoreObj('Lima', 2,16, 4.6));
 
     for (let i = 0 ; i < storesArrey.length; i++){
         totalCookies(storesArrey[i]);
