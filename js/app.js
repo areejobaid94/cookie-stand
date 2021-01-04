@@ -57,6 +57,7 @@ function StoreObj(location, min, max, average) {
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+
     };
     this.totalCookiesPerStore = function () {
         var total = 0;
