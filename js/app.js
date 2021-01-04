@@ -1,9 +1,11 @@
 'use strict';
 
-let timeArray = ['Time', '6am', '7am', '8am', '9am', '10am', '11am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Location Total']
+let timeArray = ['Time', '6am', '7am', '8am', '9am', '10am', '11am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total']
 let tableHeads = ['Location', 'Min / Cust', 'Max / Cust', 'Avg Cookie / Sale'];
 let storesArrey = [];
 let totalValuePerHour = ['Totals'];
+let totalSalmonCookieTossersPerHour = ['Totals'];
+
 let hourlyCustomerTraffic = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6]
 
 let printTableHeader = function (table, values) {
@@ -53,31 +55,43 @@ function StoreObj(location, min, max, average) {
     this.max = max;
     this.average = average;
     this.totalCooliesPerHour = [];
-    this.totalCookiesPerStore();
+    this.totalSalmonCookieTossers = []; 
+    this.calculations();
 }
 
 StoreObj.prototype.getRandomIntInclusive =function () {
     let min = Math.ceil(this.min);
     let max = Math.floor(this.max);
-    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-StoreObj.prototype.render = function () {
-    let table = document.getElementById('main');
-    printTableRow(table, this.totalCooliesPerHour, this.location);
+StoreObj.prototype.render = function (table, total, location) {
+    printTableRow(table, total, location);
 };
 
-StoreObj.prototype.totalCookiesPerStore = function () {
+StoreObj.prototype.calculations = function () {
     var total = 0;
+    var totelSalmonCookieTossers = 0;
     for (let i = 1; i < timeArray.length - 1; i++) {
-        let value = Math.round(this.getRandomIntInclusive() * this.average * hourlyCustomerTraffic[i - 1]);
+        let randomInt = this.getRandomIntInclusive();
+        let value = Math.round(randomInt * this.average * hourlyCustomerTraffic[i - 1]);
+        if(Math.ceil(randomInt/20) < 2){
+            this.totalSalmonCookieTossers.push(2);
+            totelSalmonCookieTossers += 2;
+            totalSalmonCookieTossersPerHour[i] = (totalSalmonCookieTossersPerHour[i] || 0) + 2;
+        }else{
+            this.totalSalmonCookieTossers.push(Math.ceil(randomInt/20));
+            totelSalmonCookieTossers += Math.ceil(randomInt/20);
+            totalSalmonCookieTossersPerHour[i] = (totalSalmonCookieTossersPerHour[i] || 0) + Math.ceil(randomInt/20);
+        }
         total = total + value;
         this.totalCooliesPerHour.push(value);
         totalValuePerHour[i] = (totalValuePerHour[i] || 0) + value;
     }
     totalValuePerHour[timeArray.length - 1] = (totalValuePerHour[timeArray.length - 1] || 0) + total;
+    totalSalmonCookieTossersPerHour[timeArray.length - 1] = (totalSalmonCookieTossersPerHour[timeArray.length - 1] || 0) + totelSalmonCookieTossers;
     this.totalCooliesPerHour.push(total);
-    this.render();
+    this.totalSalmonCookieTossers.push(totelSalmonCookieTossers);
 };
 
 function startPage() {
@@ -87,6 +101,10 @@ function startPage() {
 
     let tableResult = document.getElementById('main');
     printTableHeader(tableResult, timeArray);
+
+    let tableManageStaffing = document.getElementById('manage-staffing');
+    printTableHeader(tableManageStaffing, timeArray);
+
     storesArrey.push(new StoreObj('Seattle', 23, 65, 6.3));
     storesArrey.push(new StoreObj('Tokyo', 3, 24, 1.2));
     storesArrey.push(new StoreObj('Dubai', 11, 38, 3.7));
@@ -95,8 +113,12 @@ function startPage() {
 
     for (let i = 0; i < storesArrey.length; i++) {
         printTableRow(htmlTable, storesArrey[i]);
+        storesArrey[i].render(tableResult,storesArrey[i].totalCooliesPerHour,storesArrey[i].location);
+        storesArrey[i].render(tableManageStaffing,storesArrey[i].totalSalmonCookieTossers,storesArrey[i].location);
     };
     printTablefooter(tableResult, totalValuePerHour);
+    printTablefooter(tableManageStaffing, totalSalmonCookieTossersPerHour);
+
     table.appendChild(htmlTable);
 }
 startPage();
