@@ -54,10 +54,11 @@ let totalCookies = function (obj) {
         obj.totalCooliesPerHour.push(value);
         renderTheList(ul,value,timeArray[i])
     }
+    let totalLi = document.createElement('li');
+    totalLi.innerHTML = `Total: ${total} cookies`
+    ul.appendChild(totalLi);
     div.appendChild(ul)
     card.appendChild(div);
-    let totalLi = document.createElement('li');
-    totalLi.innerHTML = `Total: ${total}`
     let main =  document.getElementById('main')
     main.appendChild(h1);
     main.appendChild(card);
