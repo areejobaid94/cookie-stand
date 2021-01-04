@@ -5,6 +5,7 @@ let timeArray = ['Time', '6am', '7am', '8am', '9am', '10am', '11am', '1pm', '2pm
 let tableHeads = ['Location', 'Min / Cust', 'Max / Cust', 'Avg Cookie / Sale'];
 let storesArrey = [];
 let totalValuePerHour = ['Totals'];
+let hourlyCustomerTraffic = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6]
 
 let printTableHeader = function (table, values) {
     let row = document.createElement('tr');
@@ -61,7 +62,7 @@ function StoreObj(location, min, max, average) {
     this.totalCookiesPerStore = function () {
         var total = 0;
         for (let i = 1; i < timeArray.length - 1; i++) {
-            let value = Math.round(this.getRandomIntInclusive() * this.average);
+            let value = Math.round(this.getRandomIntInclusive() * this.average * hourlyCustomerTraffic[i -1]);
             total = total + value;
             this.totalCooliesPerHour.push(value);
             totalValuePerHour[i] = (totalValuePerHour[i] || 0) + value;
@@ -95,5 +96,7 @@ function startPage() {
     };
     printTablefooter(tableResult, totalValuePerHour);
     table.appendChild(htmlTable);
+
+    printStaffingTable();
 }
 startPage();
