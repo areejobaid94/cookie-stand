@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 console.log('start')
 let timeArray = ['Time','6am', '7am', '8am', '9am', '10am', '11am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Location Total']
@@ -38,11 +38,10 @@ let printTableRow = function (table, values, location) {
         row.appendChild(h);
     };
     for (let i in values) {
-        if (typeof (values[i]) == "number" || typeof (values[i]) == "string"){
+        if (typeof (values[i]) != "number" || typeof (values[i]) != "string")return;
             let th = document.createElement('td');
             th.innerHTML = values[i];
             row.appendChild(th);
-        }
     };
     table.appendChild(row);
 }
@@ -57,7 +56,7 @@ function StoreObj(location, min, max, average) {
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }
+    };
     this.totalCookiesPerStore = function () {
         var total = 0;
         for (let i = 1; i < timeArray.length - 1; i++) {
@@ -67,13 +66,13 @@ function StoreObj(location, min, max, average) {
             totalValuePerHour[i] = (totalValuePerHour[i] || 0) + value;
         }
         totalValuePerHour[timeArray.length - 1] =  (totalValuePerHour[timeArray.length - 1] || 0)+ total;
-        this.totalCooliesPerHour.push(total)
+        this.totalCooliesPerHour.push(total);
         this.render();
     };
     this.render = function () {
         let table = document.getElementById('main');
         printTableRow(table, this.totalCooliesPerHour, this.location);
-    }
+    };
     this.totalCookiesPerStore();
 }
 
@@ -93,8 +92,7 @@ function startPage() {
     for (let i = 0; i < storesArrey.length; i++) {
         printTableRow(htmlTable, storesArrey[i]);
     };
-    printTableHeader(tableResult,totalValuePerHour)
-
-    table.appendChild(htmlTable)
+    printTablefooter(tableResult,totalValuePerHour);
+    table.appendChild(htmlTable);
 }
 startPage();
