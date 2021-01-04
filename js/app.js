@@ -1,6 +1,5 @@
 'use strict';
 
-console.log('start')
 let timeArray = ['Time', '6am', '7am', '8am', '9am', '10am', '11am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Location Total']
 let tableHeads = ['Location', 'Min / Cust', 'Max / Cust', 'Avg Cookie / Sale'];
 let storesArrey = [];
@@ -54,29 +53,32 @@ function StoreObj(location, min, max, average) {
     this.max = max;
     this.average = average;
     this.totalCooliesPerHour = [];
-    this.getRandomIntInclusive = function () {
-        let min = Math.ceil(this.min);
-        let max = Math.floor(this.max);
-        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    };
-    this.totalCookiesPerStore = function () {
-        var total = 0;
-        for (let i = 1; i < timeArray.length - 1; i++) {
-            let value = Math.round(this.getRandomIntInclusive() * this.average * hourlyCustomerTraffic[i -1]);
-            total = total + value;
-            this.totalCooliesPerHour.push(value);
-            totalValuePerHour[i] = (totalValuePerHour[i] || 0) + value;
-        }
-        totalValuePerHour[timeArray.length - 1] = (totalValuePerHour[timeArray.length - 1] || 0) + total;
-        this.totalCooliesPerHour.push(total);
-        this.render();
-    };
-    this.render = function () {
-        let table = document.getElementById('main');
-        printTableRow(table, this.totalCooliesPerHour, this.location);
-    };
     this.totalCookiesPerStore();
 }
+
+StoreObj.prototype.getRandomIntInclusive =function () {
+    let min = Math.ceil(this.min);
+    let max = Math.floor(this.max);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+};
+
+StoreObj.prototype.render = function () {
+    let table = document.getElementById('main');
+    printTableRow(table, this.totalCooliesPerHour, this.location);
+};
+
+StoreObj.prototype.totalCookiesPerStore = function () {
+    var total = 0;
+    for (let i = 1; i < timeArray.length - 1; i++) {
+        let value = Math.round(this.getRandomIntInclusive() * this.average * hourlyCustomerTraffic[i - 1]);
+        total = total + value;
+        this.totalCooliesPerHour.push(value);
+        totalValuePerHour[i] = (totalValuePerHour[i] || 0) + value;
+    }
+    totalValuePerHour[timeArray.length - 1] = (totalValuePerHour[timeArray.length - 1] || 0) + total;
+    this.totalCooliesPerHour.push(total);
+    this.render();
+};
 
 function startPage() {
     let table = document.getElementById('table');
@@ -96,7 +98,5 @@ function startPage() {
     };
     printTablefooter(tableResult, totalValuePerHour);
     table.appendChild(htmlTable);
-
-    printStaffingTable();
 }
 startPage();
