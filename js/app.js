@@ -8,28 +8,6 @@ let storesArrey = [{
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }, totalCookies: function () {
-        let div = document.createElement('div');
-        let card = document.createElement('div');
-        card.className = 'card';
-        div.className = "container";
-        let ul = document.createElement('ul');
-        let h1 = document.createElement('h1');
-        h1.textContent = this.location;
-        let total = 0;
-        for (let i = 0 ; i < timeArray.length; i++){
-            let value = this.getRandomIntInclusive() * this.average;
-            total = total + value;
-            this.totalCooliesPerHour.push(value);
-            renderTheList(ul,value,timeArray[i])
-        }
-        div.appendChild(ul)
-        card.appendChild(div);
-        let totalLi = document.createElement('li');
-        totalLi.innerHTML = `Total: ${total}`
-        let main =  document.getElementById('main')
-        main.appendChild(h1);
-        main.appendChild(card);
     }
 }, {
     location:'Tokyo',min: 3, max: 24, average: 1.2,totalCooliesPerHour:[],
@@ -37,28 +15,6 @@ let storesArrey = [{
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }, totalCookies: function () {
-        let div = document.createElement('div');
-        let card = document.createElement('div');
-        card.className = 'card';
-        div.className = "container";
-        let ul = document.createElement('ul');
-        let h1 = document.createElement('h1');
-        h1.textContent = this.location;
-        let total = 0;
-        for (let i = 0 ; i < timeArray.length; i++){
-            let value = this.getRandomIntInclusive() * this.average;
-            total = total + value;
-            this.totalCooliesPerHour.push(value);
-            renderTheList(ul,value,timeArray[i])
-        }
-        div.appendChild(ul)
-        card.appendChild(div);
-        let totalLi = document.createElement('li');
-        totalLi.innerHTML = `Total: ${total}`
-        let main =  document.getElementById('main')
-        main.appendChild(h1);
-        main.appendChild(card);
     }
 },{
     location:'Dubai',min: 11, max: 38, average: 3.7,totalCooliesPerHour:[],
@@ -66,28 +22,6 @@ let storesArrey = [{
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }, totalCookies: function () {
-        let div = document.createElement('div');
-        let card = document.createElement('div');
-        card.className = 'card';
-        div.className = "container";
-        let ul = document.createElement('ul');
-        let h1 = document.createElement('h1');
-        h1.textContent = this.location;
-        let total = 0;
-        for (let i = 0 ; i < timeArray.length; i++){
-            let value = this.getRandomIntInclusive() * this.average;
-            total = total + value;
-            this.totalCooliesPerHour.push(value);
-            renderTheList(ul,value,timeArray[i])
-        }
-        div.appendChild(ul)
-        card.appendChild(div);
-        let totalLi = document.createElement('li');
-        totalLi.innerHTML = `Total: ${total}`
-        let main =  document.getElementById('main')
-        main.appendChild(h1);
-        main.appendChild(card);
     }
 },{
     location:'Paris',min: 20, max: 38, average: 2.3,totalCooliesPerHour:[],
@@ -95,28 +29,6 @@ let storesArrey = [{
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }, totalCookies: function () {
-        let div = document.createElement('div');
-        let card = document.createElement('div');
-        card.className = 'card';
-        div.className = "container";
-        let ul = document.createElement('ul');
-        let h1 = document.createElement('h1');
-        h1.textContent = this.location;
-        let total = 0;
-        for (let i = 0 ; i < timeArray.length; i++){
-            let value = this.getRandomIntInclusive() * this.average;
-            total = total + value;
-            this.totalCooliesPerHour.push(value);
-            renderTheList(ul,value,timeArray[i])
-        }
-        div.appendChild(ul)
-        card.appendChild(div);
-        let totalLi = document.createElement('li');
-        totalLi.innerHTML = `Total: ${total}`
-        let main =  document.getElementById('main')
-        main.appendChild(h1);
-        main.appendChild(card);
     }
 },{
     location:'Lima',min: 2, max: 16, average: 4.6,totalCooliesPerHour:[],
@@ -124,36 +36,39 @@ let storesArrey = [{
         let min = Math.ceil(this.min);
         let max = Math.floor(this.max);
         return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    }, totalCookies: function () {
-        let div = document.createElement('div');
-        let card = document.createElement('div');
-        card.className = 'card';
-        div.className = "container";
-        let ul = document.createElement('ul');
-        let h1 = document.createElement('h1');
-        h1.textContent = this.location;
-        let total = 0;
-        for (let i = 0 ; i < timeArray.length; i++){
-            let value = this.getRandomIntInclusive() * this.average;
-            total = total + value;
-            this.totalCooliesPerHour.push(value);
-            renderTheList(ul,value,timeArray[i])
-        }
-        div.appendChild(ul)
-        card.appendChild(div);
-        let totalLi = document.createElement('li');
-        totalLi.innerHTML = `Total: ${total}`
-        let main =  document.getElementById('main')
-        main.appendChild(h1);
-        main.appendChild(card);
     }
 }] 
+
+let totalCookies = function (obj) {
+    let div = document.createElement('div');
+    let card = document.createElement('div');
+    card.className = 'card';
+    div.className = "container";
+    let ul = document.createElement('ul');
+    let h1 = document.createElement('h1');
+    h1.textContent = obj.location;
+    let total = 0;
+    for (let i = 0 ; i < timeArray.length; i++){
+        let value = obj.getRandomIntInclusive() * obj.average;
+        total = total + value;
+        obj.totalCooliesPerHour.push(value);
+        renderTheList(ul,value,timeArray[i])
+    }
+    div.appendChild(ul)
+    card.appendChild(div);
+    let totalLi = document.createElement('li');
+    totalLi.innerHTML = `Total: ${total}`
+    let main =  document.getElementById('main')
+    main.appendChild(h1);
+    main.appendChild(card);
+}
 
 function renderTheList(ul,value,time){
     let li = document.createElement('li');
     li.innerText = `${time}: ${Math.round(value)} cookies`;
     ul.appendChild(li);
 }
+
 function startPage (){
     let table =  document.getElementById('table');
     let htmlTable = document.createElement('table')
@@ -171,7 +86,7 @@ function startPage (){
     htmlTable.appendChild(thAvg);
 
     for (let i = 0 ; i < storesArrey.length; i++){
-        storesArrey[i].totalCookies();
+        totalCookies(storesArrey[i]);
         let row = document.createElement('tr')
         let location = document.createElement('td')
         location.innerHTML = storesArrey[i].location;
