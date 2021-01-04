@@ -48,6 +48,7 @@ function StoreObj(location,min,max,average) {
 }
 
 function startPage (){
+    // print the table
     let table =  document.getElementById('table');
     let htmlTable = document.createElement('table')
     let thLocation = document.createElement('th');
@@ -63,13 +64,16 @@ function startPage (){
     thAvg.innerText = 'Avg Cookie / Sale';
     htmlTable.appendChild(thAvg);
 
+    // make the objects
     storesArrey.push(new StoreObj('Seattle', 23,65, 6.3));
     storesArrey.push(new StoreObj('Tokyo',3,24, 1.2));
     storesArrey.push(new StoreObj('Dubai',11, 38,3.7));
     storesArrey.push(new StoreObj('Paris',20, 38, 2.3));
     storesArrey.push(new StoreObj('Lima', 2,16, 4.6));
 
+    // print the table row and column
     for (let i = 0 ; i < storesArrey.length; i++){
+        // print the list
         totalCookies(storesArrey[i]);
         let row = document.createElement('tr')
         let location = document.createElement('td')
