@@ -55,7 +55,7 @@ let totalCookies = function (obj) {
         renderTheList(ul,value,timeArray[i])
     }
     let totalLi = document.createElement('li');
-    totalLi.innerHTML = `Total: ${total} cookies`
+    totalLi.innerHTML = `Total: ${Math.round(total)} cookies`
     ul.appendChild(totalLi);
     div.appendChild(ul)
     card.appendChild(div);
