@@ -1,7 +1,7 @@
 'use strict';
 
 console.log('start')
-let timeArray = ['Time','6am', '7am', '8am', '9am', '10am', '11am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Location Total']
+let timeArray = ['Time', '6am', '7am', '8am', '9am', '10am', '11am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Location Total']
 let tableHeads = ['Location', 'Min / Cust', 'Max / Cust', 'Avg Cookie / Sale'];
 let storesArrey = [];
 let totalValuePerHour = ['Totals'];
@@ -9,7 +9,7 @@ let totalValuePerHour = ['Totals'];
 let printTableHeader = function (table, values) {
     let row = document.createElement('tr');
     for (let i in values) {
-        if (typeof (values[i]) == "number" || typeof (values[i]) == "string"){
+        if (typeof (values[i]) == "number" || typeof (values[i]) == "string") {
             let th = document.createElement('th');
             th.innerHTML = values[i];
             row.appendChild(th);
@@ -21,7 +21,7 @@ let printTableHeader = function (table, values) {
 let printTablefooter = function (table, values) {
     let row = document.createElement('tfoot');
     for (let i in values) {
-        if (typeof (values[i]) == "number" || typeof (values[i]) == "string"){
+        if (typeof (values[i]) == "number" || typeof (values[i]) == "string") {
             let th = document.createElement('td');
             th.innerHTML = values[i];
             row.appendChild(th);
@@ -38,10 +38,11 @@ let printTableRow = function (table, values, location) {
         row.appendChild(h);
     };
     for (let i in values) {
-        if (typeof (values[i]) != "number" || typeof (values[i]) != "string")return;
+        if (typeof (values[i]) == "number" || typeof (values[i]) == "string") {
             let th = document.createElement('td');
             th.innerHTML = values[i];
             row.appendChild(th);
+        }
     };
     table.appendChild(row);
 }
@@ -65,7 +66,7 @@ function StoreObj(location, min, max, average) {
             this.totalCooliesPerHour.push(value);
             totalValuePerHour[i] = (totalValuePerHour[i] || 0) + value;
         }
-        totalValuePerHour[timeArray.length - 1] =  (totalValuePerHour[timeArray.length - 1] || 0)+ total;
+        totalValuePerHour[timeArray.length - 1] = (totalValuePerHour[timeArray.length - 1] || 0) + total;
         this.totalCooliesPerHour.push(total);
         this.render();
     };
@@ -82,7 +83,7 @@ function startPage() {
     printTableHeader(htmlTable, tableHeads);
 
     let tableResult = document.getElementById('main');
-    printTableHeader(tableResult,timeArray);
+    printTableHeader(tableResult, timeArray);
     storesArrey.push(new StoreObj('Seattle', 23, 65, 6.3));
     storesArrey.push(new StoreObj('Tokyo', 3, 24, 1.2));
     storesArrey.push(new StoreObj('Dubai', 11, 38, 3.7));
@@ -92,7 +93,7 @@ function startPage() {
     for (let i = 0; i < storesArrey.length; i++) {
         printTableRow(htmlTable, storesArrey[i]);
     };
-    printTablefooter(tableResult,totalValuePerHour);
+    printTablefooter(tableResult, totalValuePerHour);
     table.appendChild(htmlTable);
 }
 startPage();

@@ -49,24 +49,12 @@ div{
     display: inline;
   }
   
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  .container {
-    padding: 2px 16px;
-    margin-bottom: 20px;
-    color: lightseagreen;
-}
    nav ul li a {
     color: linen;
     text-decoration: none;
     font-size: 17px;
   }
-  .container {
-    padding: 2px 16px;
-  }
+
 
   #img-main{
       height: 50%;
