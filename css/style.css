@@ -76,6 +76,7 @@ div{
       margin-bottom: 10px;
   }
   footer {
+    margin-top: 20px;
     clear: both;
     position: relative;
     height: 50px;
