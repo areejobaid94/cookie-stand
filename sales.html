@@ -25,14 +25,19 @@
                 <li class = 'nav'>
                     <a href="sales.html">Sales</a>
                 </li>
+                <li class = 'nav'>
+                    <button id = 'nav-button' onclick="changeTheMood()">
+                        Dark Mood 
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
         <img id = 'img-main' src="" alt="">
         <h1 style="margin-top: 10px;">Data</h1>
-        <div id = 'table'>
-        </div>
+        <table id = 'table'>
+        </table>
         <h1 style="margin-top: 40px;">The Output</h1>
         <table id='main'>
         </table>  
@@ -40,10 +45,11 @@
         <table id='manage-staffing'>
         </table>  
     </main>
-    <footer style="position: relative;bottom: 0px; ">
+    <footer >
         <h4>Contact Us</h4>
         <p>Email: areej.obaid@yahoo.com</p>
     </footer>
     <script src="js/app.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

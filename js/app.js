@@ -1,5 +1,4 @@
 'use strict';
-let count = 6;
 let timeArray = ['Time', '6am', '7am', '8am', '9am', '10am', '11am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total']
 let tableHeads = ['Location', 'Addresse','Min / Cust', 'Max / Cust', 'Avg Cookie / Sale','Hours Open' , 'Contact Information'];
 let storesArrey = [];
@@ -97,8 +96,7 @@ StoreObj.prototype.calculations = function () {
 };
 
 function startPage() {
-    let table = document.getElementById('table');
-    let htmlTable = document.createElement('table');
+    let htmlTable = document.getElementById('table');
     printTableHeader(htmlTable, tableHeads);
 
     let tableResult = document.getElementById('main');
@@ -120,17 +118,6 @@ function startPage() {
     };
     printTablefooter(tableResult, totalValuePerHour);
     printTablefooter(tableManageStaffing, totalSalmonCookieTossersPerHour);
-
-    table.appendChild(htmlTable);
 }
 startPage();
 
-function changeImg(){
-    console.log('hi');
-    let imgToHide = 'img-main-'+ count;
-    count > 1 ?  count = count - 1 : count = 6;
-    let imgToShow = 'img-main-' + count;
-
-    document.getElementById(imgToHide).style.display = 'none';
-    document.getElementById(imgToShow).style.display = 'block';
-}
