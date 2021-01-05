@@ -96,5 +96,10 @@ div{
   }
   #img-main-6{
     display: block;
+    width: 400px;
+    height: 400px;
     margin: auto;
+}
+#div-img{
+    margin-top: 40px;
 }
