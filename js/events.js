@@ -21,9 +21,9 @@ function changeTheMood(home){
         moodIsBlack = false;
     }else{
         document.getElementById('nav-button').innerText = 'Lite Mood';
-        document.body.style.background = "#000000 url('img_tree.png') no-repeat right top";
+        document.body.style.background = "#227766 url('img_tree.png') no-repeat right top";
         if(!home){
-            document.getElementById('add-data').style.backgroundColor = 'black';
+            document.getElementById('add-data').style.backgroundColor = '#227766';
         }
         moodIsBlack = true;
     }
