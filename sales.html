@@ -33,11 +33,55 @@
             </ul>
         </nav>
     </header>
-    <main>
         <img id = 'img-main' src="" alt="">
         <h1 style="margin-top: 10px;">Data</h1>
         <table id = 'table'>
         </table>
+        <div id = 'add-data'>
+            <form action="" id = 'data-form' >
+                <fieldset>
+                    <legend id = 'add-edit-data'>Add New Data</legend>
+                    <input type="text" id='row-value' hidden>
+                    <label for="location">
+                        Location
+                        <input id="location"  name = 'location' type="text" required>
+                    </label>
+                    <br>
+                    <label for="addresse">
+                        Addresse
+                        <input id ='addresse' name="addresse" type="text" required>
+                    </label>
+                    <br>
+                    <label for="min">
+                        Min
+                        <input id ='min' name="min" type="number" required>
+                    </label>
+                    <br>
+                    <label for="max">
+                        Max
+                        <input id='max' name = 'max' type="number" required>
+                    </label>
+                    <br>
+                    <label for="average">
+                        Average
+                        <input type="number" id = 'average' name="average" required step="0.01">
+                    </label>
+                    <br>
+                    <label for="hoursOpen">
+                        Open Hours 
+                        <input type="text" id = 'hoursOpen' name = 'hoursOpen' required>
+                    </label>
+                    <br>
+                    <label for="contactInformation">
+                        Contact Information
+                        <input type="text" id ='contactInformation' name="contactInformation" required>
+                    </label>
+                    <br>
+                    <input type="submit" value="Submit">
+                </fieldset>
+            </form>
+            <button id='add-store' onclick="addData()">Add New Data</button>
+        </div>
         <h1 style="margin-top: 40px;">The Output</h1>
         <table id='main'>
         </table>  
@@ -50,6 +94,6 @@
         <p>Email: areej.obaid@yahoo.com</p>
     </footer>
     <script src="js/app.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/events.js"></script>
 </body>
 </html>

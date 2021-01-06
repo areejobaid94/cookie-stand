@@ -64,11 +64,16 @@ div{
       width: 60%;
       box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2);
   }
-  h1{
+  h1, legend{
       margin-top: 20px;
       color: lightseagreen;
       font: bold 1em sans-serif;
       margin-bottom: 10px;
+  }
+  label{
+    margin-top: 20px;
+    color: lightseagreen;
+    margin-bottom: 10px;
   }
   footer {
     margin-top: 20px;
@@ -104,7 +109,28 @@ div{
     margin-top: 40px;
 }
 
+button{
+    background-color: rgb(23, 204, 195);;
+    color: white;
+}
+
 #nav-button{
     background-color: rgb(10, 88, 45);
     color: white;
+}
+#data-form{
+    display: none;
+}
+
+#add-store{
+    margin-top: 20px;
+    background-color: rgb(23, 204, 195);
+}
+#add-data{
+    margin: auto;
+    margin-top: 20px;
+    width: 200px;
+}
+input{
+    margin-bottom: 10px;
 }

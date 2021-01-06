@@ -16,11 +16,14 @@ function changeTheMood(){
         console.log(moodIsBlack);
         document.body.style.background = "rgb(230, 253, 252) url('img_tree.png') no-repeat right top";
         document.body.style.color = "black";
+        document.getElementById('add-data').style.background = "rgb(230, 253, 252) url('img_tree.png') no-repeat right top";
         moodIsBlack = false;
     }else{
         console.log(moodIsBlack);
         document.body.style.background = "#000000 url('img_tree.png') no-repeat right top";
         document.body.style.color = "white";
+        document.getElementById('add-data').style.backgroundColor = 'black';
         moodIsBlack = true;
     }
 }
+
