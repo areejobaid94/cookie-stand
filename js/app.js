@@ -20,7 +20,7 @@ let printTableHeader = function (table, values) {
 };
 
 function deleteStore(row){
-    let confirmMes = confirm('Areej you Sure');
+    let confirmMes = confirm('Are you Sure');
     if(confirmMes){
         var i = row.parentNode.parentNode.rowIndex;
         document.getElementById("table").deleteRow(i);
@@ -54,12 +54,15 @@ function editStore(row){
 var form = document.getElementById('data-form');
 form.addEventListener('submit',function(e){
     e.preventDefault();
-    let header = document.getElementById('add-edit-data');
-    if(header.textContent.split(' ')[0] == 'Add'){
-        storesArrey.push(new StoreObj(e.target.location.value, e.target.addresse.value ,Number(e.target.min.value) ,Number(e.target.max.value) ,Number(e.target.average.value) ,e.target.hoursOpen.value  , e.target.contactInformation.value ));
-        addRows();
-    }else{
-        editRows(e.target.location.value, e.target.addresse.value ,Number(e.target.min.value) ,Number(e.target.max.value) ,Number(e.target.average.value) ,e.target.hoursOpen.value  , e.target.contactInformation.value);
+    let confirmMes = confirm('Are you Sure');
+    if(confirmMes){
+        let header = document.getElementById('add-edit-data');
+        if(header.textContent.split(' ')[0] == 'Add'){
+            storesArrey.push(new StoreObj(e.target.location.value, e.target.addresse.value ,Number(e.target.min.value) ,Number(e.target.max.value) ,Number(e.target.average.value) ,e.target.hoursOpen.value  , e.target.contactInformation.value ));
+            addRows();
+        }else{
+            editRows(e.target.location.value, e.target.addresse.value ,Number(e.target.min.value) ,Number(e.target.max.value) ,Number(e.target.average.value) ,e.target.hoursOpen.value  , e.target.contactInformation.value);
+        }
     }
 })
 
