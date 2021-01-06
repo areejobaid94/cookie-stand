@@ -239,4 +239,4 @@ function editRows(location, addresse,min ,max ,average ,hoursOpen  , contactInfo
     tableManageStaffing.deleteTFoot();
     printTablefooter(mainTable,totalValuePerHour);
     printTablefooter(tableManageStaffing,totalSalmonCookieTossersPerHour);
-}
+};
