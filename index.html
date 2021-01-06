@@ -9,13 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
 </head>
-<body style="background-color: rgb(184, 253, 250);">
+<body>
     <header>
         <nav>
             <ul>
                 <li>
                     <div id= 'img-div'>
-                        <img id = 'img-head' src="https://codefellows.github.io/code-201-guide/curriculum/class-06/lab/assets/salmon.png" alt="">
+                        <img id = 'img-head' src="img/salmon.png" alt="">
                         <h4 id="h4-head"> Cookie Stand</h4>
                     </div>
                 </li>
@@ -25,15 +25,29 @@
                 <li class = 'nav'>
                     <a href="sales.html">Sales</a>
                 </li>
+                <li class = 'nav'>
+                    <button id = 'nav-button' onclick="changeTheMood()">
+                        Dark Mood 
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
-        <img id = 'img-main' src="https://lancerfeed.press/wp-content/uploads/2020/01/Capture-cookies-e1579890211687-900x600.png" alt="">
+        <div id = 'div-img'>
+            <img id = 'img-main-1' src="img/chinook.jpg" alt="" >
+            <img id = 'img-main-2' src="img/cutter.jpeg" alt="">
+            <img id = 'img-main-3' src="img/family.jpg" alt="">
+            <img id = 'img-main-4' src="img/fish.jpg" alt="">
+            <img id = 'img-main-5' src="img/frosted-cookie.jpg" alt="">
+            <img id = 'img-main-6' src="img/shirt.jpg" alt="">
+            <button onclick="changeImg()" >Next</button>
+        </div>
     </main>
-    <footer id='contact-us'>
+    <footer id='contact-us' style="position: absolute;bottom: 0px;width: 100%;">
         <h4>Contact Us</h4>
         <p>Email: areej.obaid@yahoo.com</p>
     </footer>
+    <script src="js/events.js"></script>
 </body>
 </html>
