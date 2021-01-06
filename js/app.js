@@ -32,6 +32,9 @@ function deleteStore(row){
             totalValuePerHour[j+1] =totalValuePerHour[j+1] - storesArrey[i-1].totalCooliesPerHour[j];
             totalSalmonCookieTossersPerHour[j+1]= totalSalmonCookieTossersPerHour[j+1] - storesArrey[i-1].totalSalmonCookieTossers[j];
         }
+        console.log(storesArrey,i);
+        storesArrey.splice(i-1,1);
+        console.log(storesArrey);
         printTablefooter(document.getElementById("main"),totalValuePerHour )
         printTablefooter(document.getElementById("manage-staffing"),totalSalmonCookieTossersPerHour )
     };
