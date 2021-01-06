@@ -11,18 +11,20 @@ function changeImg(){
     document.getElementById(imgToShow).style.display = 'block';
 }
 
-function changeTheMood(){
+function changeTheMood(home){
     if(moodIsBlack){
-        console.log(moodIsBlack);
+        document.getElementById('nav-button').innerText = 'Dark Mood';
         document.body.style.background = "rgb(230, 253, 252) url('img_tree.png') no-repeat right top";
-        document.body.style.color = "black";
-        document.getElementById('add-data').style.background = "rgb(230, 253, 252) url('img_tree.png') no-repeat right top";
+        if(!home){
+            document.getElementById('add-data').style.background = "rgb(230, 253, 252) url('img_tree.png') no-repeat right top";
+        }
         moodIsBlack = false;
     }else{
-        console.log(moodIsBlack);
+        document.getElementById('nav-button').innerText = 'Lite Mood';
         document.body.style.background = "#000000 url('img_tree.png') no-repeat right top";
-        document.body.style.color = "white";
-        document.getElementById('add-data').style.backgroundColor = 'black';
+        if(!home){
+            document.getElementById('add-data').style.backgroundColor = 'black';
+        }
         moodIsBlack = true;
     }
 }
