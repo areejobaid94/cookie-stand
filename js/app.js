@@ -51,8 +51,8 @@ function editStore(row){
     document.getElementById('hoursOpen').value = storesArrey[index-1].hoursOpen;
     document.getElementById('contactInformation').value = storesArrey[index-1].contactInformation;
 };
-var form = document.getElementById('data-form');
-form.addEventListener('submit',function(e){
+
+document.getElementById('data-form').addEventListener('submit',function(e){
     e.preventDefault();
     let confirmMes = confirm('Are you Sure');
     if(confirmMes){
