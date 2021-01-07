@@ -22,6 +22,8 @@ let printTableHeader = function (table, values) {
 function deleteStore(row){
     let confirmMes = confirm('Are you Sure');
     if(confirmMes){
+        document.getElementById('add-store').innerText = "Add New Data";
+        document.getElementById('data-form').style.display = 'none';
         var i = row.parentNode.parentNode.rowIndex;
         document.getElementById("table").deleteRow(i);
         document.getElementById("main").deleteRow(i);
