@@ -63,7 +63,7 @@ document.getElementById('data-form').addEventListener('submit',function(e){
     if(confirmMes){
         let header = document.getElementById('add-edit-data');
         if(header.textContent.split(' ')[0] == 'Add'){
-            storesArrey.push(new StoreObj(e.target.location.value, e.target.addresse.value ,Number(e.target.min.value) ,Number(e.target.max.value) ,Number(e.target.average.value) ,e.target.hoursOpen.value  , e.target.contactInformation.value ));
+            storesArrey.push(new StoreObj(e.target.location.value,Number(e.target.min.value) ,Number(e.target.max.value) ,Number(e.target.average.value) , e.target.addresse.value ,e.target.hoursOpen.value  , e.target.contactInformation.value ));
             addRows();
         }else{
             editRows(e.target.location.value, e.target.addresse.value ,Number(e.target.min.value) ,Number(e.target.max.value) ,Number(e.target.average.value) ,e.target.hoursOpen.value  , e.target.contactInformation.value);
@@ -165,7 +165,6 @@ function startPage() {
 
     let tableManageStaffing = document.getElementById('manage-staffing');
     printTableHeader(tableManageStaffing, timeArray);
-
     storesArrey.push(new StoreObj('Seattle', 23, 65, 6.3,'site number: 4','6am - 7pm' , 'Email: areej.obaid@yahoo.com'));
     storesArrey.push(new StoreObj('Tokyo',3, 24, 1.2,'site number: 5','6am - 7pm' ,'Email: areej.obaid@yahoo.com' ));
     storesArrey.push(new StoreObj('Dubai',11, 38, 3.7,'site number: 17' ,'6am - 7pm' , 'Email: areej.obaid@yahoo.com'));
